@@ -1,0 +1,17 @@
+{
+  "name": "crud-api-nodejs-express-mongodb",
+  "version": "0.0.1",
+  "author": "Asep Maulana Ismail",
+  "description": "CRUD API program with node.js, express and mongodb",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.9.2",
+    "express": "^4.10.1",
+    "method-override": "^2.3.0",
+    "mongoose": "^3.8.18",
+    "morgan": "^1.4.1"
+  }
+}
