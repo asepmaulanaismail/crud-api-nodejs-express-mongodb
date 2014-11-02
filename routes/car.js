@@ -3,7 +3,7 @@
  *
  * @module      :: Routes
  * @description :: Maps routes and actions
- * @author		  :: Kevin Blanco
+ * @author		:: Asep Maulana Ismail
  */
 
 var Car = require('../models/car.js');
