@@ -71,8 +71,7 @@ module.exports = function(app) {
 
     var car = new Car({
       model:    req.body.model,
-      style:    req.body.style,
-      size :    req.body.size,
+      year:    req.body.year,
       color:    req.body.color,
       price:    req.body.price
     });
@@ -114,10 +113,9 @@ module.exports = function(app) {
       }
 
       if (req.body.model != null) car.model = req.body.model;
-      if (req.body.price != null) car.price = req.body.price;
-      if (req.body.style != null) car.style = req.body.style;
-      if (req.body.size != null) car.size  = req.body.size;
-      if (req.body.colour != null) car.color = req.body.color;
+      if (req.body.year != null) car.year = req.body.year;
+      if (req.body.price != null) car.price  = req.body.price;
+      if (req.body.color != null) car.color = req.body.color;
 
       return car.save(function(err) {
         if(!err) {

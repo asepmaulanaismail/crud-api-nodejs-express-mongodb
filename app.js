@@ -34,5 +34,10 @@ console.log('Im listening on port 8080');
 
 // First example router
 app.get('/', function(req, res) {
-  res.send("Hello world!");
+  res.sendfile('./public/index.html');
+});
+
+// update router
+app.get('/update', function(req, res) {
+  res.sendfile('./public/update.html');
 });

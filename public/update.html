@@ -1,0 +1,121 @@
+<!-- index.html -->
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="carsManager">
+<head>
+    <!-- META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+
+    <title>Simple Cars Management</title>
+
+    <!-- SCROLLS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
+    <style>
+        html                    { overflow-y:scroll; }
+        body                    { padding-top:50px; }
+        #todo-list              { margin-bottom:30px; }
+    </style>
+
+    <!-- SPELLS -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
+    <script src="core.js"></script>
+
+</head>
+<!-- SET THE CONTROLLER AND GET ALL TODOS -->
+<body ng-controller="mainController">
+    <div class="container">
+
+        <!-- HEADER AND TODO COUNT -->
+        <div class="jumbotron text-center">
+            <h1>Cars Management <span class="label label-info">{{ cars.length }}</span></h1>
+        </div>
+
+        <!-- CAR LIST -->
+        <div id="car-list" class="row">				
+				
+                <!-- LOOP OVER THE CAR IN $scope.cars -->
+				<table class="table table-striped" width="90%">
+					<colgroup>
+						<col width="15%" />
+						<col width="15%" />
+						<col width="15%" />
+						<col width="15%" />
+						<col width="*" />
+					</colgroup>
+					<tr>
+						<th>
+							Model
+						</th>
+						<th>
+							Year
+						</th>
+						<th>
+							Color
+						</th>
+						<th>
+							Price
+						</th>
+						<th>
+							Action
+						</th>
+					</tr>
+					<tr ng-repeat="car in cars">
+						<td>
+							{{ car.model }}
+						</td>
+						<td>
+							{{ car.year }}
+						</td>
+						<td>
+							{{ car.color }}
+						</td>
+						<td>
+							{{ car.price }}
+						</td>
+						<td>
+							<input type="submit" class="btn btn-warning" value="Update"  ng-click="goToUpdatePage(car._id)"/>
+							<input type="submit" class="btn btn-info" value="Delete"  ng-click="deleteCar(car._id)"/>
+						</td>
+					</tr>
+				</table>
+
+				<!-- FORM TO CREATE TODOS -->
+				<form>
+					<div class="form-group">
+						<table class="table table-striped" width="90%">
+							<colgroup>
+								<col width="15%" />
+								<col width="15%" />
+								<col width="15%" />
+								<col width="15%" />
+								<col width="*" />
+							</colgroup>
+							<tr>
+								<td>
+									<input id="model" type="text" placeHolder="Model" class="form-control text-center" width="100%" ng-model="formData.model"/>
+								</td>
+								<td>
+									<input id="year" type="text" placeHolder="Year" class="form-control text-center" width="100%"ng-model="formData.year"/>
+								</td>
+								<td>
+									<input id="color" type="text" placeHolder="Color" class="form-control text-center" width="100%"ng-model="formData.color"/>
+								</td>
+								<td>
+									<input id="price" type="text" placeHolder="Price" class="form-control text-center" width="100%"ng-model="formData.price"/>
+								</td>
+								<td>
+									<input type="submit" class="btn btn-primary" value="Add"  ng-click="createCar()" width="100%"/>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</form>
+        </div>
+
+    </div>
+
+</body>
+</html>
